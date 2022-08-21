@@ -1,13 +1,21 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:pallettop/views/pallets.dart';
 
 class GetQuote extends StatelessWidget {
-  const GetQuote({
+  GetQuote({
     Key? key,
     required this.formKey,
   }) : super(key: key);
 
   final GlobalKey<FormState> formKey;
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController phonecontroller = TextEditingController();
+  TextEditingController collectioncontroller = TextEditingController();
+  TextEditingController deliverycontroller = TextEditingController();
+  TextEditingController messagecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +42,7 @@ class GetQuote extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: namecontroller,
                   decoration: InputDecoration(
                     labelText: "Name",
                     fillColor: Colors.white,
@@ -59,6 +68,7 @@ class GetQuote extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: emailcontroller,
                   decoration: InputDecoration(
                     labelText: "Email",
                     fillColor: Colors.white,
@@ -84,6 +94,7 @@ class GetQuote extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: phonecontroller,
                   decoration: InputDecoration(
                     labelText: "Phone",
                     fillColor: Colors.white,
@@ -110,6 +121,7 @@ class GetQuote extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: collectioncontroller,
                   decoration: InputDecoration(
                     labelText: "Collection Address",
                     fillColor: Colors.white,
@@ -128,6 +140,7 @@ class GetQuote extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: deliverycontroller,
                   decoration: InputDecoration(
                     labelText: "Delivery Address",
                     fillColor: Colors.white,
@@ -149,6 +162,7 @@ class GetQuote extends StatelessWidget {
                 child: SizedBox(
                   height: 6 * 24.0,
                   child: TextFormField(
+                    controller: messagecontroller,
                     maxLines: 6,
                     decoration: InputDecoration(
                       labelText: "Message",
@@ -195,7 +209,13 @@ class GetQuote extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Pallets()));
+                              builder: (context) => Pallets(
+                                  name: namecontroller.text,
+                                  email: emailcontroller.text,
+                                  collection_address: collectioncontroller.text,
+                                  delivery_address: deliverycontroller.text,
+                                  message: messagecontroller.text,
+                                  phone: phonecontroller.text)));
                     }
                   },
                   child: const Text(
