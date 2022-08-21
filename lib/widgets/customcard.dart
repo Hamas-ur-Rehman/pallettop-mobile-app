@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class CustomCard extends StatelessWidget {
   String imgpath;
   String title;

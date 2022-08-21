@@ -1,7 +1,5 @@
 // ignore_for_file: file_names, must_be_immutable
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:banner_carousel/banner_carousel.dart';
 import 'package:fancy_bottom_navigation_2/fancy_bottom_navigation.dart';
