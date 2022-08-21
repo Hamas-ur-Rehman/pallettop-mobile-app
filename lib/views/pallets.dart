@@ -6,6 +6,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../constants/constant.dart';
+
 class Pallets extends StatefulWidget {
   final String name;
   final String email;
@@ -94,7 +96,6 @@ class _PalletsState extends State<Pallets> {
     "Boxes",
     "Chicken Boxes",
   ];
-
   void postapi(List palletList) async {
     setState(() {
       loading = true;
@@ -102,8 +103,7 @@ class _PalletsState extends State<Pallets> {
     try {
       final result = await InternetAddress.lookup('www.google.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        final response = await http.post(
-            Uri.parse('https://www.pallettop.com/api/quote.php'),
+        final response = await http.post(Uri.parse('$api/quote.php'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
             },

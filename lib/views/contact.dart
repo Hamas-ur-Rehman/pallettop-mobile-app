@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:httpservice/httpservice.dart';
 
+import '../constants/constant.dart';
+
 class Contact extends StatefulWidget {
   const Contact({
     Key? key,
@@ -228,7 +230,7 @@ class _ContactState extends State<Contact> {
                               );
                             });
                             getapidata(
-                                'https://www.pallettop.com/api/contact.php?name=${fname}=&email=${femail}&subject=${fsubject}&message=${fmessage} ',
+                                '$api/contact.php?name=${fname}=&email=${femail}&subject=${fsubject}&message=${fmessage} ',
                                 context);
                           }
                         },
