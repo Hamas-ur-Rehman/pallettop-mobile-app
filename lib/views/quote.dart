@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:pallettop/views/pallets.dart';
 
@@ -82,7 +83,11 @@ class GetQuote extends StatelessWidget {
                     if (val!.isEmpty) {
                       return "Email cannot be empty";
                     } else {
-                      return null;
+                      if (EmailValidator.validate(val)) {
+                        return null;
+                      } else {
+                        return "Please enter a valid email";
+                      }
                     }
                   },
                   keyboardType: TextInputType.emailAddress,

@@ -121,6 +121,7 @@ class _PalletsState extends State<Pallets> {
           setState(() {
             loading = false;
           });
+          Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(jsonDecode(response.body)['message']),
